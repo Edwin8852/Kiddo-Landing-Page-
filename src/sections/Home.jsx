@@ -4,8 +4,9 @@ import { PhoneCall, ArrowRight } from 'lucide-react';
 import Button from '../components/ui/Button';
 
 const Home = ({ onOpenDemo }) => {
+  const [isLoaded, setIsLoaded] = React.useState(false);
   return (
-    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center pt-40 pb-20 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center pt-32 md:pt-40 pb-20 overflow-hidden">
       {/* Professional Background Gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,#FDBA74/10,transparent_50%)] -z-10" />
       
@@ -23,7 +24,7 @@ const Home = ({ onOpenDemo }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-6xl md:text-8xl font-black text-[#1F2937] mb-8 tracking-tighter leading-[0.95] font-sans"
+            className="text-4xl sm:text-6xl md:text-8xl font-black text-[#1F2937] mb-6 md:mb-8 tracking-tighter leading-[0.95] font-sans px-4"
           >
             The Intelligence <br />
             Behind <span className="text-brand">KIDDO</span>
@@ -33,7 +34,7 @@ const Home = ({ onOpenDemo }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="max-w-2xl mx-auto text-lg md:text-xl text-[#1F2937]/50 mb-12 leading-relaxed"
+            className="max-w-2xl mx-auto text-base md:text-xl text-[#1F2937]/50 mb-10 md:mb-12 leading-relaxed px-4"
           >
             Kiddo Shadow provides a secure, curriculum-aligned AI environment, operational intelligence, and moderated communication for modern educational institutions.
           </motion.p>
@@ -42,16 +43,16 @@ const Home = ({ onOpenDemo }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 md:mb-20 px-6"
           >
             <Button 
               onClick={onOpenDemo}
               size="lg" 
-              className="h-14 px-10 bg-brand hover:shadow-2xl hover:shadow-brand/30 text-sm font-bold uppercase tracking-widest"
+              className="w-full sm:w-auto h-14 px-10 bg-brand hover:shadow-2xl hover:shadow-brand/30 text-sm font-bold uppercase tracking-widest"
             >
               Get Started Now
             </Button>
-            <Button variant="secondary" size="lg" className="h-14 px-10 border-[#FDBA74]/20 hover:bg-white text-[#1F2937] text-sm font-bold uppercase tracking-widest">
+            <Button variant="secondary" size="lg" className="w-full sm:w-auto h-14 px-10 border-[#FDBA74]/20 hover:bg-white text-[#1F2937] text-sm font-bold uppercase tracking-widest">
               View Solutions
             </Button>
           </motion.div>
@@ -83,7 +84,8 @@ const Home = ({ onOpenDemo }) => {
             <img 
               src="/hero_dashboard.png" 
               alt="Kiddo Shadow Platform" 
-              className="w-full h-auto rounded-[24px]"
+              onLoad={() => setIsLoaded(true)}
+              className={`w-full h-auto rounded-[24px] transition-all duration-1000 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
             />
           </div>
           

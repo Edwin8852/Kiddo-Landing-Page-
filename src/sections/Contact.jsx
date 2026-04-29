@@ -52,10 +52,10 @@ const Contact = ({ onOpenDemo }) => {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="p-10 md:p-16 rounded-[48px] bg-[#1a1625] text-white relative overflow-hidden shadow-2xl shadow-brand/20"
+            className="p-8 md:p-16 rounded-[32px] md:rounded-[48px] bg-[#1a1625] text-white relative overflow-hidden shadow-2xl shadow-brand/20"
           >
             <div className="relative z-10 space-y-8">
-              <h3 className="text-3xl font-black tracking-tighter">Schedule a Walkthrough</h3>
+              <h3 className="text-2xl md:text-3xl font-black tracking-tighter">Schedule a Walkthrough</h3>
               <p className="text-white/60 text-lg leading-relaxed">
                 See Kiddo Shadow in action. We'll show you the AI guardrails, the institutional dashboards, and our deployment roadmap.
               </p>

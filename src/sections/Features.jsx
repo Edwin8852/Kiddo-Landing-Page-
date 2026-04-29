@@ -54,9 +54,9 @@ const Features = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-bold text-[#1F2937] mb-8 tracking-tight"
+            className="text-3xl sm:text-5xl md:text-6xl font-bold text-[#1F2937] mb-6 md:mb-8 tracking-tight"
           >
-            Built for Modern School <br /> Operations
+            Built for Modern School <br className="hidden sm:block" /> Operations
           </motion.h2>
           
           <motion.p 

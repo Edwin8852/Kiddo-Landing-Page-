@@ -29,8 +29,8 @@ const Navbar = ({ onOpenDemo }) => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       isScrolled 
-        ? 'bg-white/80 backdrop-blur-xl border-b border-[#FDBA74]/20 py-4 shadow-sm' 
-        : 'bg-transparent py-6'
+        ? 'bg-white/90 backdrop-blur-xl border-b border-[#FDBA74]/20 py-4 shadow-sm' 
+        : 'bg-white/40 md:bg-transparent backdrop-blur-md md:backdrop-blur-none py-4 md:py-6'
     }`}>
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between">
@@ -39,7 +39,7 @@ const Navbar = ({ onOpenDemo }) => {
             onClick={() => setIsBrandModalOpen(true)}
             className="flex items-center gap-4 group cursor-pointer"
           >
-            <div className="h-14 overflow-hidden transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+            <div className="h-10 md:h-14 overflow-hidden transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
               <img 
                 src="/kiddo_logo.png" 
                 alt="Kiddo Logo" 
@@ -47,8 +47,8 @@ const Navbar = ({ onOpenDemo }) => {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-black text-2xl tracking-tighter text-[#1F2937] leading-none">KIDDO</span>
-              <span className="text-[10px] font-bold text-brand uppercase tracking-[0.2em] mt-1.5">Intelligence Platform</span>
+              <span className="font-black text-xl md:text-2xl tracking-tighter text-[#1F2937] leading-none">KIDDO</span>
+              <span className="text-[8px] md:text-[10px] font-bold text-brand uppercase tracking-[0.2em] mt-1 md:mt-1.5">Intelligence Platform</span>
             </div>
           </div>
 
@@ -82,10 +82,10 @@ const Navbar = ({ onOpenDemo }) => {
 
           {/* Mobile Menu Toggle */}
           <button 
-            className="lg:hidden p-2 text-[#1F2937]"
+            className="lg:hidden p-2.5 text-[#1F2937] bg-brand/5 rounded-xl border border-brand/10"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
       </div>
@@ -116,12 +116,12 @@ const Navbar = ({ onOpenDemo }) => {
             </div>
 
             {/* Links */}
-            <div className="flex-1 overflow-y-auto py-10 px-6 space-y-8">
+            <div className="flex-1 overflow-y-auto py-6 px-6 space-y-6">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="block text-4xl font-black tracking-tighter text-[#1F2937] hover:text-brand transition-colors"
+                  className="block text-3xl font-black tracking-tighter text-[#1F2937] hover:text-brand transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}

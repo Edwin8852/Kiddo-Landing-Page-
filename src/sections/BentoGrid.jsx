@@ -11,10 +11,12 @@ import {
   Zap,
   ArrowRight
 } from 'lucide-react';
+import robotImg from '../assets/Kiddo img.png';
 
 const BentoGrid = () => {
+  const [isLoaded, setIsLoaded] = React.useState(false);
   return (
-    <section id="features" className="py-32 relative overflow-hidden">
+    <section id="features" className="py-20 md:py-32 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-24">
           <motion.div
@@ -30,9 +32,9 @@ const BentoGrid = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-7xl font-black text-[#1F2937] mb-8 tracking-tighter"
+            className="text-3xl sm:text-5xl md:text-7xl font-black text-[#1F2937] mb-6 md:mb-8 tracking-tighter"
           >
-            Built for the <span className="text-gradient">Next-Gen</span> <br />
+            Built for the <span className="text-gradient">Next-Gen</span> <br className="hidden sm:block" />
             Educational Ecosystem
           </motion.h2>
         </div>
@@ -60,7 +62,19 @@ const BentoGrid = () => {
                 </button>
               </div>
             </div>
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-brand/5 to-transparent -z-10" />
+            {/* Robot Image Illustration */}
+            <div className="absolute top-0 right-0 w-full md:w-1/2 h-full -z-10 opacity-20 md:opacity-100 transition-all duration-700 group-hover:scale-105 group-hover:translate-x-2">
+              <div className="relative w-full h-full">
+                <img 
+                  src={robotImg} 
+                  alt="Kiddo Shadow AI Assistant" 
+                  onLoad={() => setIsLoaded(true)}
+                  className={`w-full h-full object-contain object-right-bottom drop-shadow-[0_20px_50px_rgba(253,186,116,0.3)] transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                />
+                {/* Subtle Glow behind robot */}
+                <div className="absolute bottom-0 right-0 w-64 h-64 bg-brand/10 rounded-full blur-[100px] -z-10" />
+              </div>
+            </div>
           </motion.div>
 
           {/* Attendance Card */}

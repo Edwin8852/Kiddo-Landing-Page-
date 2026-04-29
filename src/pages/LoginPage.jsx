@@ -8,6 +8,7 @@ import { useTheme } from '../context/ThemeContext';
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   const navigate = useNavigate();
   const { isDark } = useTheme();
 
@@ -112,7 +113,8 @@ const LoginPage = () => {
           <img 
             src="/login_illustration.png" 
             alt="Welcome Illustration" 
-            className="w-full h-auto drop-shadow-[0_20px_50px_rgba(168,85,247,0.3)]"
+            onLoad={() => setIsLoaded(true)}
+            className={`w-full h-auto drop-shadow-[0_20px_50px_rgba(168,85,247,0.3)] transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
           />
         </motion.div>
 

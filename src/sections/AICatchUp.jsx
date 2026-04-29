@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Upload, Sparkles, UserCheck, Zap } from 'lucide-react';
+import robotImg from '../assets/Kiddo img.png';
 
 const AICatchUp = () => {
+  const [isLoaded, setIsLoaded] = React.useState(false);
   const steps = [
     {
       title: "Teacher Uploads Content",
@@ -76,22 +78,69 @@ const AICatchUp = () => {
             </div>
           </div>
 
-          {/* Right Image */}
+          {/* Premium SaaS-Style Illustration Container */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex-1 relative"
+            className="flex-1 relative w-full flex items-center justify-center lg:justify-end"
           >
-            <div className="relative z-10 bg-white rounded-[32px] p-6 shadow-2xl overflow-hidden min-h-[400px] flex items-center justify-center max-w-[440px] mx-auto">
-              <img 
-                src="/ai_learning_catchup.png" 
-                alt="AI Learning Robot" 
-                className="w-full h-auto object-contain max-h-[460px]"
-              />
+            {/* 1. Large Ambient Background Glows */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full -z-10 overflow-hidden">
+              <div className="absolute top-0 right-0 w-80 h-80 bg-purple-100 rounded-full blur-[100px] opacity-60" />
+              <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-100 rounded-full blur-[100px] opacity-60" />
             </div>
-            {/* Decorative element behind image */}
-            <div className="absolute -inset-4 bg-brand/10 blur-2xl rounded-[40px] -z-10 animate-pulse" />
+
+            {/* 2. Main Professional Glass Card */}
+            <motion.div 
+              animate={{ 
+                y: [0, -12, 0],
+              }}
+              transition={{ 
+                duration: 5, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }}
+              className="relative z-10 w-full max-w-[540px] aspect-square rounded-[40px] bg-gradient-to-br from-white/60 via-purple-50/30 to-blue-50/30 backdrop-blur-xl border border-white/60 shadow-[0_20px_50px_rgba(0,0,0,0.05)] flex items-center justify-center p-12 md:p-16 group"
+            >
+              {/* Subtle inner card border */}
+              <div className="absolute inset-4 rounded-[32px] border border-white/40 pointer-events-none" />
+              
+              {/* 3. The Robot Image (Balanced & Centered) */}
+              <motion.img 
+                src={robotImg} 
+                alt="Kiddo Shadow AI Assistant" 
+                onLoad={() => setIsLoaded(true)}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={isLoaded ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                whileHover={{ scale: 1.05 }}
+                className="w-full h-full object-contain relative z-20 drop-shadow-[0_15px_30px_rgba(0,0,0,0.08)] transition-all duration-700 ease-out"
+              />
+
+              {/* 4. Minimalist Decorative Elements (SaaS Style) */}
+              <div className="absolute top-8 left-8 flex gap-2">
+                <div className="w-2 h-2 rounded-full bg-purple-300" />
+                <div className="w-2 h-2 rounded-full bg-blue-300" />
+              </div>
+              <div className="absolute bottom-8 right-8 text-[10px] font-bold text-[#1F2937]/20 tracking-widest uppercase">
+                AI Instance v2.0
+              </div>
+              
+              {/* Soft glow behind robot */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.8),transparent_70%)] opacity-50" />
+            </motion.div>
+
+            {/* 5. Outer Accent Elements */}
+            <motion.div 
+              animate={{ rotate: 360 }}
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+              className="absolute -top-6 -right-6 w-12 h-12 border border-brand/10 rounded-full"
+            />
+            <motion.div 
+              animate={{ x: [0, 10, 0], y: [0, 10, 0] }}
+              transition={{ duration: 6, repeat: Infinity }}
+              className="absolute -bottom-4 -left-4 w-8 h-8 bg-brand/5 backdrop-blur-sm rounded-lg rotate-12 border border-brand/10"
+            />
           </motion.div>
         </div>
       </motion.div>
