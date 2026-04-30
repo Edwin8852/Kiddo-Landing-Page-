@@ -27,7 +27,8 @@ const Navbar = ({ onOpenDemo }) => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+    <>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       isScrolled 
         ? 'bg-white/90 backdrop-blur-xl border-b border-[#FDBA74]/20 py-4 shadow-sm' 
         : 'bg-white/40 md:bg-transparent backdrop-blur-md md:backdrop-blur-none py-4 md:py-6'
@@ -89,6 +90,7 @@ const Navbar = ({ onOpenDemo }) => {
           </button>
         </div>
       </div>
+      </nav>
 
       <AnimatePresence>
         {isMobileMenuOpen && (
@@ -151,7 +153,7 @@ const Navbar = ({ onOpenDemo }) => {
         isOpen={isBrandModalOpen} 
         onClose={() => setIsBrandModalOpen(false)} 
       />
-    </nav>
+    </>
   );
 };
 
